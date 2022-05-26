@@ -1,0 +1,30 @@
+name: 'interview'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'interview'
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"
+
+vars:
+  eur_to_usd: 1.07
+  sek_to_usd: 0.10
+  nok_to_usd: 0.10
+
+models:
+  dbt_poc:
+    # Config indicated by + and applies to all files under models/example/
+    example:
+      +materialized: view

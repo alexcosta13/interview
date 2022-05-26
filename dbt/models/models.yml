@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: interview
+    tables:
+      - name: events
+      - name: registrations
+
+models:
+  - name: ua_channel_revenue
+    config:
+      materialized: table
+    description: ""
+    columns:
+      - name: ua_channel
+        description: "Registered user acquisition channel."
+        tests:
+          - not_null
+      - name: revenue
+        description: "USD revenue per day per country."
+        tests:
+          - not_null
+      - name: country
+        description: "Country."
+        tests:
+          - not_null
+      - name: date
+        description: "Date of the given revenue per country."
+        tests:
+          - not_null
